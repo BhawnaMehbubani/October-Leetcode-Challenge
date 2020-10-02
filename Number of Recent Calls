@@ -1,0 +1,21 @@
+class RecentCounter {
+private:
+    vector <int> calls;
+    int head;
+public:
+    RecentCounter() {
+        head=0;
+    }
+    
+    int ping(int t) {
+        calls.push_back(t);
+        while(calls[head]<t-3000)head++;
+        return calls.size()-head;
+    }
+};
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter* obj = new RecentCounter();
+ * int param_1 = obj->ping(t);
+ */
